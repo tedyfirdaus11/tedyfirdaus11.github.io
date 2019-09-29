@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	Canvas Pertama Tedy</title>
+</head>
+
+<style type="text/css">
+	canvas{
+		background-color: #ccc;
+	}
+</style>
+
+<body>
+ 
+	<canvas id="CanvasTedy" height="450" width="800"> </canvas>
+			<script type="text/javascript">
+				
+				var canvas = document.getElementById('CanvasTedy');
+				var ctx = canvas.getContext("2d");
+				// ctx = context >> objek dari canvas untuk digambar 
+
+				//membuat segi empat 
+				ctx.beginPath();
+				ctx.rect(25, 25, 100, 100);
+				ctx.fillStyle = 'blue';
+				ctx.fill();
+				ctx.stroke();
+
+				//stroke membuat sisi dalam sekililing objek ( ctx )
+
+				//membuat lingkaran
+
+				ctx.beginPath();
+				ctx.arc(300, 80, 500, 0, 2 * Math.PI);
+				ctx.fillStyle = "red";
+				ctx.fill();
+				ctx.stroke();
+
+				// membuat segitiga dengan garis 
+
+				ctx.beginPath(); // mulai menggmabar
+				ctx.moveTo(50, 100); // titik awal
+				ctx.lineTo(100, 300); // titik ke-2
+				ctx.lineTo(300, 300); // titik ke-3
+				ctx.closePath(); // titik ke-3 ke titik awal
+				ctx.fillStyle = "GREEN";
+				ctx.fill();
+				// buat garis
+				ctx.stroke();
+
+
+
+			</script>
+		
+	
+
+</body>
+</html>
