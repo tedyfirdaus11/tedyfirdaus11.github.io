@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Click mouse and draw pada html</title>
+</head>
+
+<style type="text/css" media="screen">
+	canvas{
+		background-color: #ccc;
+	}
+</style>
+<body>
+
+<canvas height="450" width="1000" id="tedycanvas">
+	
+</canvas>
+
+<script type="text/javascript">
+	
+	var c = document.getElementById('tedycanvas');
+	var ctx = c.getContext("2d");
+
+	// membuat garis memakai mouse 
+
+	document.body.addEventListener('mousedown',drawline);
+	function drawline(e)
+	{
+		var x = e.offsetX;
+		var y = e.offsetY;
+		ctx.lineTo(x,y);
+		ctx.lineWidth = "2";
+		ctx.strokeStyle = 'black';
+		ctx.stroke();
+	}
+
+
+
+
+	window.addEventListener("keydown",checkKeyPress,false);
+
+	function checkKeyPress(key) {
+		if(key.keyCode == "13"){
+
+			ctx.fillStyle = 'green';
+			ctx.fill();
+			
+	
+		}
+		else{
+			ctx.beginPath();
+			var x = e.offsetX;
+			var y = e.offsetY;
+			ctx.lineTo(x,y);
+			ctx.lineWidth = "2";
+			ctx.strokeStyle = 'black';
+			ctx.stroke();
+			
+			
+		}
+	}
+</script>
+
+</body>
+</html>
