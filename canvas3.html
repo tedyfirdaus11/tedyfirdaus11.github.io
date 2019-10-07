@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Pattern</title>
+
+    <style type="text/css">
+        body
+        {
+            position: relative;
+            margin: 0px;
+        }
+        #layer1
+        {
+            z-index: 1;
+            position: absolute;
+            width: 100%;
+        }
+    </style>
+</head>
+<body onresize="init()">
+    <canvas id="layer1"></canvas>
+    
+    <script type="text/javascript">
+        var layer1,ctx1,screenW,screenH;
+
+        function init()
+        {
+            layer1=document.getElementById('layer1');
+            ctx1 = layer1.getContext('2d');
+        //menentukan ukuran layar
+            screenH = window.innerHeight;
+            screenW = window.innerWidth;
+        //mengatur canvas menjadi fullpage
+            layer1.width = screenW;
+            layer1.height = screenH;
+        //panggil fungsi draw
+            draw();
+        }
+
+        function draw()
+        {
+            for(var i = 0; i<=50; i++)
+            {
+                createRect(ctx1,i*60,50,50)
+            }
+                for(var i = 0; i<=150;i++)
+                {
+                    var xPos = i*10;
+                    var yPos = (Math.cos(xPos/40)*90)+300;
+                    createRect(ctx1,xPos,yPos,30);
+                }
+        }
+
+        function createCirlce(contex,x,y,size) 
+        {
+            contex.beginPath();
+            contex.arc(x,y,size,0,2*Math.PI);
+            contex.stroke();    
+        }
+
+        function createRect(contex,x,y,size) 
+        {
+            contex.beginPath();
+            contex.fillStyle = "#ff0000";
+            contex.fillRect(x,y,size,size);    
+        }
+
+        init();
+    </script>    
+</body>
+</html>
